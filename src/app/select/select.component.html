@@ -1,0 +1,15 @@
+<div>
+  
+  <nz-select class="select-w" nzMode="multiple" style="width: 200px" (ngModelChange)="handleSelectChange($event)" [(ngModel)]="selected">
+    <nz-option nzCustomContent [nzValue]="'all'" [nzLabel]="'全选'">
+      <label nz-checkbox [(ngModel)]="allChecked" (ngModelChange)="updateAllChecked()" [nzIndeterminate]="indeterminate">
+        Check all
+      </label>
+    </nz-option>
+    <nz-option nzCustomContent  *ngFor="let opt of options" [nzLabel]="opt.label" [nzValue]="opt.value">
+      <label nz-checkbox [(ngModel)]="opt.checked" (ngModelChange)="updateSingleChecked()">{{opt.label}}</label>
+    </nz-option>
+    <!-- <nz-checkbox-group>
+    </nz-checkbox-group> -->
+  </nz-select>
+</div>
